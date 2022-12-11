@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="dateForm">
+        Bitte geben Sie den Start- und Endzeitpunkt des Zeitraums ein:<br>
+        Startdatum: <input type="date" id="startdate"><br>
+        Enddatum: <input type="date" id="enddate"><br>
+        <input type="button" value="Absenden" onclick="displayInputs()">
+      </form> 
+      
+      <div id="inputs"></div>
+      
+      <script>
+      function displayInputs() {
+        var start = new Date(document.getElementById('startdate').value);
+        var end = new Date(document.getElementById('enddate').value);
+      
+        // Leere den Inhalt des Elements mit der ID "inputs"
+        document.getElementById('inputs').innerHTML = '';
+      
+        // Führe die Schleife aus, um für jedes Datum im angegebenen Zeitraum eine Inputbox anzuzeigen
+        for (var d = start; d <= end; d.setDate(d.getDate() + 1)) {
+          var date = d.toISOString().slice(0,10);
+          var input = document.createElement('input');
+          input.type = 'text';
+          input.name = 'input_' + date;
+          input.id = 'input_' + date;
+          input.placeholder = 'Bitte geben Sie eine Eingabe für das Datum ' + date + ' ein';
+      
+          var inputContainer = document.createElement('p');
+          inputContainer.appendChild(input);
+          document.getElementById('inputs').appendChild(inputContainer);
+        }
+      }
+      </script>
+    
+</body>
+</html>
+
