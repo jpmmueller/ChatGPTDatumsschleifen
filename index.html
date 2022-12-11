@@ -31,9 +31,10 @@
           input.type = 'text';
           input.name = 'input_' + date;
           input.id = 'input_' + date;
-          input.placeholder = 'Bitte geben Sie eine Eingabe für das Datum ' + date + ' ein';
+          input.placeholder = 'Bitte geben Sie Ihre Stunden ein';
       
           var inputContainer = document.createElement('p');
+          inputContainer.innerText=date;
           inputContainer.appendChild(input);
           document.getElementById('inputs').appendChild(inputContainer);
         }
