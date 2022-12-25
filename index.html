@@ -26,7 +26,7 @@
       
         // Führe die Schleife aus, um für jedes Datum im angegebenen Zeitraum eine Inputbox anzuzeigen
         for (var d = start; d <= end; d.setDate(d.getDate() + 1)) {
-          var date = d.toLocaleDateString().slice(0,14);
+          var date = d.toLocaleDateString('de-DE',{day:"2-digit",month:"2-digit",year:"numeric"});
           var input = document.createElement('input');
           input.type = 'text';
           input.name = 'input_' + date;
